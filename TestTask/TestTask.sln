@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2011
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask", "TestTask.csproj", "{6E9922F2-AF75-4807-B6E4-F74499317C39}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{A4B30989-44BF-4833-BDBE-2F8E5648F987}"
+	ProjectSection(SolutionItems) = preProject
+		File1.txt = File1.txt
+		File2.txt = File2.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTest", "..\WPFTest\WPFTest.csproj", "{67B16499-3715-4244-AF57-4C7DE39A499C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,10 @@ Global
 		{6E9922F2-AF75-4807-B6E4-F74499317C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E9922F2-AF75-4807-B6E4-F74499317C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E9922F2-AF75-4807-B6E4-F74499317C39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67B16499-3715-4244-AF57-4C7DE39A499C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67B16499-3715-4244-AF57-4C7DE39A499C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67B16499-3715-4244-AF57-4C7DE39A499C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67B16499-3715-4244-AF57-4C7DE39A499C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

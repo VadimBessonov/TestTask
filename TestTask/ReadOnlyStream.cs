@@ -6,6 +6,7 @@ namespace TestTask
     public class ReadOnlyStream : IReadOnlyStream
     {
         private Stream _localStream;
+        private StreamReader _localStreamReader; // необходим для правильного чтения кодировки UTF-8
 
         /// <summary>
         /// Конструктор класса. 
@@ -16,9 +17,8 @@ namespace TestTask
         public ReadOnlyStream(string fileFullPath)
         {
             IsEof = true;
-
-            // TODO : Заменить на создание реального стрима для чтения файла!
-            _localStream = null;
+            _localStream = new FileStream(fileFullPath, FileMode.Open);
+            _localStreamReader = new StreamReader(_localStream); // необходим для правильного чтения кодировки UTF-8
         }
                 
         /// <summary>
@@ -26,9 +26,10 @@ namespace TestTask
         /// </summary>
         public bool IsEof
         {
-            get; // TODO : Заполнять данный флаг при достижении конца файла/стрима при чтении
+            get;
             private set;
         }
+        
 
         /// <summary>
         /// Ф-ция чтения следующего символа из потока.
@@ -38,8 +39,31 @@ namespace TestTask
         /// <returns>Считанный символ.</returns>
         public char ReadNextChar()
         {
-            // TODO : Необходимо считать очередной символ из _localStream
-            throw new NotImplementedException();
+            if (IsEof == true)
+            {
+                throw new Exception("end of file");
+            }
+           
+            //int nextChar = _localStream.ReadByte(); // работает только с английскими символами, либо ASCII кодировкой
+            int nextChar = _localStreamReader.Read();
+
+            switch (nextChar)
+            {
+                case -1:
+                    IsEof = true;
+                    return '\0';
+                default:
+                    return (char)nextChar;
+            }
+        }
+
+        /// <summary>
+        /// Метод закрытия файла.
+        /// </summary>
+        public void CloseFile()
+        {
+            _localStreamReader.Close();
+            _localStream.Close();
         }
 
         /// <summary>
